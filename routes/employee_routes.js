@@ -41,16 +41,19 @@ router.post("/signup" ,async (req, res) => {
         const newEmployee = new Employee({
             email,
             firstname,
-            password, // Password is stored as plain text (not recommended)
+            password,
+            
+             // Password is stored as plain text (not recommended)
         });
 
         const token = 
         generate_token({email, password }) ;
 
-        await newEmployee.save();
+        const temp = await newEmployee.save();
 
-        res.status(201).json({ message: "Employee registered successfully" , token:token });
+        res.status(201).json({ message: "Employee registered successfully" , token:token , temp:temp });
     } catch (error) {
+        // console.log(error) ;
         res.status(500).json({ message: "Error signing up", error });
     }
 });
@@ -74,6 +77,7 @@ router.post("/signin", async (req, res) => {
 
         const token = 
         generate_token({email, password }) ;
+        // console.log(employee) ;
 
 
 

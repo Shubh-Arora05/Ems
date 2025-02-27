@@ -1,8 +1,8 @@
 const mongoose = require('mongoose') ;
 
-require('dotenv').config() ;
+// require('dotenv').config() ;
 
-const mongoose_url = process.env.MONGO_URL ;
+const mongoose_url = "mongodb+srv://shubharora:shubharora@cluster0.skii4.mongodb.net/";
 
 
 mongoose.connect( mongoose_url) ;

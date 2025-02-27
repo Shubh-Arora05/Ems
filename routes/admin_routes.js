@@ -28,9 +28,9 @@ router.post("/signup", async (req, res) => {
 
         await newAdmin.save();
 
-        res.status(201).json({ message: "Admin registered successfully" ,token : token  });
+        res.status(201).json({ message: "Admin registered successfully" ,token : token , newAdmin });
     } catch (error) {
-        console.timeLog(error);
+        // console.timeLog(error);
         res.status(500).json({ message: "Error signing up", error : error} );
     }
 });

@@ -1,11 +1,11 @@
 const express = require('express') ;
 const mongoose = require('mongoose') ;
 const app = express() ;
-require('dotenv').config() ;
+// require('dotenv').config() ;
 const db = require('./db.js')
 const cors = require('cors') ;
 
-const port = process.env.PORT ;
+const port = 4000 ;
 app.use(cors()) ;
 const admin_routes = require('./routes/admin_routes.js')
 const task_routes = require('./routes/task_routes.js')

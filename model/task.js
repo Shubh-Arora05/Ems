@@ -1,4 +1,6 @@
+
 const mongoose = require("mongoose");
+const { v4: uuidv4 } = require("uuid");
 
 const taskSchema = new mongoose.Schema({
   title: {
@@ -7,8 +9,10 @@ const taskSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-
   },
+
+  
+ 
   date: {
     type: Date,
     required: true,
@@ -29,7 +33,19 @@ const taskSchema = new mongoose.Schema({
   failed: {
     type: Boolean,
   },
+  assignedto: {
+    type: String,
+  },
+  _id: mongoose.Schema.Types.ObjectId,
 });
+
+// taskSchema.pre("save", async function (next) {
+//   if (!this.taskId) {
+//     this.taskId = await getNextSequence("taskId");
+//   }
+//   next();
+// });
+
 
 const Task = mongoose.model("Task", taskSchema);
 

@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken') ;
 
-require('dotenv').config() ;
-const JWT_SECRET = process.env.JWT_SECRET ;
+// require('dotenv').config() ;
+const JWT_SECRET = "123" ;
 
 const generate_token = (payload) =>{
     const token = jwt.sign(payload , JWT_SECRET , {expiresIn :'3h'}) ;

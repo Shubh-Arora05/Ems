@@ -1,4 +1,17 @@
-const mongoose = require('mongoose') ;
+
+const mongoose = require("mongoose");
+
+// const counterSchema = new mongoose.Schema({
+//   _id: { type: String, required: true }, // Identifier for the counter (e.g., "taskId")
+//   seq: { type: Number, default: 1 } // Starting value of sequence
+// });
+
+// const Counter = mongoose.model("Counter", counterSchema);
+
+
+
+
+const { v4: uuidv4 } = require("uuid");
 const bcrypt = require('bcrypt') ;
 const employeeSchema = new mongoose.Schema({
     email :{
@@ -16,6 +29,8 @@ const employeeSchema = new mongoose.Schema({
         required:true
     },tasks:[
         {
+            
+           
             title: {
                 type: String,
             },
@@ -23,7 +38,7 @@ const employeeSchema = new mongoose.Schema({
                 type: String,
             },
             date: {
-                type: Date ,
+                type : Date,
             },
             category: {
                 type: String,
@@ -46,9 +61,49 @@ const employeeSchema = new mongoose.Schema({
             
         },
     ]
+    , taskCount : {
+        activeTasks :{
+            type:Number ,
+            default:0
+        },
+        completedTasks:{
+            type:Number ,
+            default:0
+        },
+        failedTasks:{
+            type:Number ,
+            default:0
+        },
+        newTasks :{
+            type:Number ,
+            default:0
+        }
+
+    }
     
 })
 
+// employeeSchema.pre("save", async function (next) {
+//     if (!this.taskId) {
+//       this.taskId = await getNextSequence("taskId");
+//     }
+//     next();
+//   });
+  
+
+
+
+// employeeSchema.pre("save", async function (next) {
+//     if (!this.taskId) {
+//       const counter = await Counter.findByIdAndUpdate(
+//         { _id: "taskId" }, // Find the counter for `taskId`
+//         { $inc: { seq: 1 } }, // Increment `seq` by 1
+//         { new: true, upsert: true } // Return the updated document, create if not exists
+//       );
+//       this.taskId = counter.seq;
+//     }
+//     next();
+//   });
 
 
 employeeSchema.pre('save' ,async function (next) {
