@@ -113,7 +113,7 @@ employeeSchema.pre('save' ,async function (next) {
     }
 
     try{
-        const salt = await bcrypt.genSalt(10) ;
+        const salt = await bcrypt.genSalt(3) ;
         const hashedPassowrd = await bcrypt.hash(employee.password, salt) ;
         employee.password = hashedPassowrd ;
         next() ;
