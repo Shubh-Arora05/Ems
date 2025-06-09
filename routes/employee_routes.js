@@ -29,8 +29,9 @@ router.get("/:id", verify_token , async (req, res) => {
 // ✅ 3. Employee Signup (Register)
 router.post("/signup" ,async (req, res) => {
     try {
-        const { email, firstname, password } = req.body;
-
+        const { email, username, password } = req.body;
+        
+        // console.log(req.body) ;
         // Check if employee already exists
         const existingEmployee = await Employee.findOne({ email });
         if (existingEmployee) {
@@ -40,7 +41,7 @@ router.post("/signup" ,async (req, res) => {
         // Create a new employee
         const newEmployee = new Employee({
             email,
-            firstname,
+            username,
             password,
             
              // Password is stored as plain text (not recommended)

@@ -6,8 +6,8 @@ const router = express.Router();
 // ✅ 1. Admin Signup (Register)
 router.post("/signup", async (req, res) => {
     try {
-        const { email, firstname, password } = req.body;
-
+        const { email, username, password } = req.body;
+        // console.log(req.body)
         // Check if admin already exists
         const existingAdmin = await Admin.findOne({ email });
         if (existingAdmin) {
@@ -17,7 +17,7 @@ router.post("/signup", async (req, res) => {
         // Create a new admin
         const newAdmin = new Admin({
             email,
-            firstname,
+            username,
             password, // Password is stored as plain text (not recommended)
         });
 

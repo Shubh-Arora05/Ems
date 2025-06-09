@@ -37,7 +37,7 @@ router.post("/:username",verify_token  ,async (req, res) => {
         const { username } = req.params;
         const { title, description, date, category, active, newTask, completed, failed } = req.body;
 
-        const employee = await Employee.findOne({firstname:username});
+        const employee = await Employee.findOne({username:username});
         if (!employee) {
             return res.status(400).json({ message: "Employee not found" });
         }

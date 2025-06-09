@@ -4,6 +4,8 @@ const mongoose = require('mongoose') ;
 
 const mongoose_url = "mongodb+srv://shubharora:shubharora@cluster0.skii4.mongodb.net/";
 
+// const mongoose_url = "mongodb://localhost:27017/test2";
+
 
 mongoose.connect( mongoose_url) ;
 

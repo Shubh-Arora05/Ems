@@ -19,18 +19,17 @@ const employeeSchema = new mongoose.Schema({
         required:true,
         unique:true
     },
-    firstname :{
+    username :{
         type:String,
         required:true,
         unique:true,
     },
+    
     password:{
         type:String,
         required:true
     },tasks:[
-        {
-            
-           
+        {  
             title: {
                 type: String,
             },
@@ -113,7 +112,7 @@ employeeSchema.pre('save' ,async function (next) {
     }
 
     try{
-        const salt = await bcrypt.genSalt(3) ;
+        const salt = await bcrypt.genSalt(2) ;
         const hashedPassowrd = await bcrypt.hash(employee.password, salt) ;
         employee.password = hashedPassowrd ;
         next() ;
