@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🧑‍💼 Employee Management System (EMS)
 
 A full-stack Employee Management System for managing employees and tasks, built with **Node.js**, **Express.js**, **React.js**, **Tailwind CSS**, and **MongoDB**.
@@ -96,3 +97,13 @@ Authorization: Bearer your.jwt.token
 ```bash
 git clone https://github.com/yourusername/ems.git
 cd ems
+=======
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+>>>>>>> EMS-Frontend/master
