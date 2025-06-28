@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🧑‍💼 Employee Management System (EMS)
 
 A full-stack Employee Management System for managing employees and tasks, built with **Node.js**, **Express.js**, **React.js**, **Tailwind CSS**, and **MongoDB**.
